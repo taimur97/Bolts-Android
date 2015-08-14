@@ -21,6 +21,9 @@ before_script:
 script:
   - ./gradlew build testDebug connectedCheck --continue --info
 
+after_success:
+  - ./gradlew jacocoTestReport coveralls
+
 cache:
   directories:
     - $HOME/.gradle
